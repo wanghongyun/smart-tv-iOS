@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="input" destination="bka-Ze-DmR" id="N80-R7-vJZ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="yY8-nY-hvZ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bka-Ze-DmR">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Owd-DN-Leh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <connections>
+                        <action selector="editEnd:" destination="-1" eventType="editingDidEndOnExit" id="i3a-no-Pgc"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDZ-rS-a2Q">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="7pl-a4-miu"/>
+                    </constraints>
+                    <state key="normal" title="确定"/>
+                    <connections>
+                        <action selector="confirm:" destination="-1" eventType="touchUpInside" id="XPD-hC-RVG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h4S-Uc-xil">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="gM0-v2-27A"/>
+                        <constraint firstAttribute="height" constant="30" id="llL-BS-90c"/>
+                    </constraints>
+                    <state key="normal" title="server"/>
+                    <connections>
+                        <action selector="serverClick:" destination="-1" eventType="touchUpInside" id="cxb-9N-b7j"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApI-FR-CZf">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="SGc-mc-a1w"/>
+                        <constraint firstAttribute="height" constant="30" id="w4g-oL-W6x"/>
+                    </constraints>
+                    <state key="normal" title="local"/>
+                    <connections>
+                        <action selector="localClick:" destination="-1" eventType="touchUpInside" id="ges-rc-tEm"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvv-SP-tto">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="AGh-OC-SRc"/>
+                        <constraint firstAttribute="width" constant="62" id="wmo-j1-GyQ"/>
+                    </constraints>
+                    <state key="normal" title="清缓存"/>
+                    <connections>
+                        <action selector="clearCache:" destination="-1" eventType="touchUpInside" id="7sd-5H-4sR"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="IDZ-rS-a2Q" firstAttribute="top" secondItem="bka-Ze-DmR" secondAttribute="bottom" constant="50" id="AF0-LK-mlG"/>
+                <constraint firstItem="Uvv-SP-tto" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Hx4-JJ-LYL"/>
+                <constraint firstItem="bka-Ze-DmR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="107" id="JLq-YS-0X8"/>
+                <constraint firstItem="Uvv-SP-tto" firstAttribute="leading" secondItem="h4S-Uc-xil" secondAttribute="trailing" constant="23" id="Vti-xl-bEd"/>
+                <constraint firstItem="ApI-FR-CZf" firstAttribute="leading" secondItem="Uvv-SP-tto" secondAttribute="trailing" constant="23" id="c8r-x5-Tyb"/>
+                <constraint firstItem="bka-Ze-DmR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="eb3-Jw-Dkz"/>
+                <constraint firstItem="Uvv-SP-tto" firstAttribute="baseline" secondItem="h4S-Uc-xil" secondAttribute="baseline" id="eid-9H-TeF"/>
+                <constraint firstItem="IDZ-rS-a2Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="gif-aJ-1Zc"/>
+                <constraint firstAttribute="trailing" secondItem="bka-Ze-DmR" secondAttribute="trailing" constant="8" id="ie5-GM-Xaz"/>
+                <constraint firstItem="Uvv-SP-tto" firstAttribute="top" secondItem="IDZ-rS-a2Q" secondAttribute="bottom" constant="34" id="piH-5R-Kyd"/>
+                <constraint firstItem="ApI-FR-CZf" firstAttribute="baseline" secondItem="Uvv-SP-tto" secondAttribute="baseline" id="vDJ-hJ-rOl"/>
+                <constraint firstAttribute="trailing" secondItem="IDZ-rS-a2Q" secondAttribute="trailing" constant="8" id="xVO-Uw-eUr"/>
+            </constraints>
+            <connections>
+                <action selector="touch:" destination="-1" eventType="touchDown" id="X3S-k8-j8B"/>
+            </connections>
+            <point key="canvasLocation" x="304.5" y="487.5"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
+    </simulatedMetricsContainer>
+</document>
