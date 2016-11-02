@@ -237,10 +237,10 @@
 		96AA92961DC7340F00F713AC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				96AA935D1DC7404000F713AC /* WXViewController.h */,
-				96AA935E1DC7404000F713AC /* WXViewController.m */,
 				96AA93571DC7394E00F713AC /* BaseViewController.h */,
 				96AA93581DC7394E00F713AC /* BaseViewController.m */,
+				96AA935D1DC7404000F713AC /* WXViewController.h */,
+				96AA935E1DC7404000F713AC /* WXViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

@@ -9,8 +9,7 @@
 #ifndef Constants_h
 #define Constants_h
 
-#define HOST @"http://app.bandou.cn/"
-#define PROJECT @"bandou-weex/"
+#define HOST @"http://smarttv.webuildus.com/"
 #define SERVER [NSString stringWithFormat:@"%@%@", HOST, @"bandou-weex/"]
 #define TOP_VIEW [NSString stringWithFormat:@"%@%@", SERVER, @"dist/main.js"]
 #define SPLASH_VIEW [NSString stringWithFormat:@"%@%@", SERVER, @"dist/guide.js"]

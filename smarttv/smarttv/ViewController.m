@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     NSString *host = [[NSUserDefaults standardUserDefaults] stringForKey:@"host"];
     if (!host || host.length == 0) {
-        host = @"app.bandou.cn/bandou-weex";
+        host = @"smarttv.webuildus.com/smart-tv-weex";
     }
     self.input.text = host;
 }
@@ -39,15 +39,12 @@
     
     NSString *host = self.input.text;
     [[NSUserDefaults standardUserDefaults] setObject:host forKey:@"host"];
-    
-//    AppDelegate *d = (AppDelegate *)[UIApplication sharedApplication].delegate;
-//    [d gotoMainWithServer:host];
 
     NSString *urlStr = [NSString stringWithFormat:@"http://%@/dist/main.js", host];
     WXViewController *controller = [[WXViewController alloc] init];
     NSURL *url = [NSURL URLWithString:urlStr];
     controller.url = url;
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:controller] animated:YES completion:nil];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)clearCache:(UIButton *)sender {
@@ -65,7 +62,7 @@
 }
 
 - (IBAction)serverClick:(UIButton *)sender {
-    self.input.text = @"app.bandou.cn/bandou-weex";;
+    self.input.text = @"smarttv.webuildus.com/smart-tv-weex";;
 }
 
 - (IBAction)localClick:(UIButton *)sender {

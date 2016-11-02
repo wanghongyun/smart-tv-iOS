@@ -15,6 +15,8 @@
 #import "ViewController.h"
 #import "WXViewController.h"
 
+#import "Constants.h"
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) WXViewController *topController;
@@ -43,8 +45,8 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: [[ViewController alloc] init]];
+
+    [self gotoMainWithServer:SERVER];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -79,6 +81,9 @@
 }
 
 - (void)gotoMainWithServer:(NSString *)server {
+#ifdef DEVELOP_DEMO
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: [[ViewController alloc] init]];
+#else
     self.topController = [[WXViewController alloc] init];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/dist/main.js", server]];
     self.topController.url = url;
@@ -87,6 +92,7 @@
     [UIView animateWithDuration:0.2 delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.topController.view.alpha = 1.0;
     } completion:nil];
+#endif
 }
 
 - (void)gotoMainWithIndex:(NSInteger)index {

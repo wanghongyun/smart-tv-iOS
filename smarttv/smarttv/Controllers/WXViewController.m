@@ -22,7 +22,7 @@
 #define LOADING_VIEW_TAG 1001
 #define WEEX_VIEW_TAG 1002
 
-@interface WXViewController()<CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate>
+@interface WXViewController()<CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UIView *weexView;
 @property (nonatomic, assign) CGFloat weexHeight;
@@ -45,13 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _weexHeight = self.view.frame.size.height;
-    
-    NSLog(@"%@", _instance.pageName);
-    NSLog(@"%@", _instance.pageObject);
-    
-    self.navigationController.navigationBarHidden = YES;
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    [self.navigationController.interactivePopGestureRecognizer setEnabled:YES];
     
     if (self.param) {
         self.title = self.param[@"title"];
@@ -106,6 +99,9 @@
 
 - (void)showLoading {
     
+    [self showProgress:nil];
+    return;
+    
     [[self.view viewWithTag:LOADING_VIEW_TAG] removeFromSuperview];
     
     UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -137,6 +133,8 @@
 }
 
 - (void)hideLoading {
+    [self hideProgress];
+    return;
     [[self.view viewWithTag:LOADING_VIEW_TAG] removeFromSuperview];
 }
 
@@ -615,7 +613,7 @@
 }
 
 - (void)render {
-//    [self showLoading];
+    [self showLoading];
     [_instance destroyInstance];
     
     _instance = [[WXSDKInstance alloc] init];
@@ -638,7 +636,7 @@
         [UIView animateWithDuration:0.1 delay:0.1 options:UIViewAnimationOptionCurveEaseIn animations:^{
             weakSelf.weexView.alpha = 1.0;
         } completion:^(BOOL finished) {
-//            [weakSelf hideLoading];
+            [weakSelf hideLoading];
         }];
     };
     

@@ -11,7 +11,19 @@
 #import "Constants.h"
 #import "MBProgressHUD.h"
 
+@interface BaseViewController() <UIGestureRecognizerDelegate>
+
+@end
+
 @implementation BaseViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.navigationController.navigationBarHidden = YES;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    [self.navigationController.interactivePopGestureRecognizer setEnabled:YES];
+}
 
 - (void)showProgress:(NSString *)text {
     [MBProgressHUD hideAllHUDForView:self.view];
