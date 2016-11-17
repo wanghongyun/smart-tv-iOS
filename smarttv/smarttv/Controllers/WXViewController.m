@@ -629,7 +629,11 @@
     _instance.viewController = self;
     CGFloat width = self.view.frame.size.width;
     _instance.frame = CGRectMake(self.view.frame.size.width-width, 0, width, _weexHeight);
-    [_instance renderWithURL:self.url options:@{@"bundleUrl":[self.url absoluteString]} data:self.param];
+    
+    NSString *randomURL = [NSString stringWithFormat:@"%@%@random=%d",self.url.absoluteString, self.url.query?@"&":@"?",arc4random()];
+    [_instance renderWithURL:[NSURL URLWithString:randomURL] options:@{@"bundleUrl":[self.url absoluteString]} data:self.param];
+
+//    [_instance renderWithURL:self.url options:@{@"bundleUrl":[self.url absoluteString]} data:self.param];
     
     __weak typeof(self) weakSelf = self;
     _instance.onCreate = ^(UIView *view) {
