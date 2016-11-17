@@ -66,8 +66,7 @@
 }
 
 - (IBAction)localClick:(UIButton *)sender {
-    NSString *host = [[NSUserDefaults standardUserDefaults] stringForKey:@"host"];
-    self.input.text = host;
+    self.input.text = nil;
 }
 
 @end

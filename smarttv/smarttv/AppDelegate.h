@@ -18,7 +18,6 @@
 - (void)saveContext;
 
 -(void)gotoMainWithIndex:(NSInteger)index;
-- (void)gotoMainWithServer:(NSString *)server;
 
 @end
 

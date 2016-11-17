@@ -27,7 +27,9 @@ WX_EXPORT_METHOD(@selector(openURL:withParam:))
         newURL = [NSString stringWithFormat:@"http:%@", url];
     } else if (![url hasPrefix:@"http"]) {
 #ifdef DEVELOP_DEMO
-        newURL = [NSURL URLWithString:url relativeToURL:weexInstance.scriptURL].absoluteString;
+        NSString *host = [[NSUserDefaults standardUserDefaults] stringForKey:@"host"];
+        NSString *urlStr = [NSString stringWithFormat:@"http://%@/", host];
+        newURL = [NSURL URLWithString:url relativeToURL:[NSURL URLWithString:urlStr]].absoluteString;
 #else
         //        relative path
         //        NSString *host = [NSString stringWithFormat:@"http://%@:%@/", weexInstance.scriptURL.host, weexInstance.scriptURL.port];

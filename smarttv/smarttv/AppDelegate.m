@@ -46,7 +46,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
 
-    [self gotoMainWithServer:SERVER];
+    [self gotoMain];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -80,12 +80,12 @@
     [self saveContext];
 }
 
-- (void)gotoMainWithServer:(NSString *)server {
+- (void)gotoMain {
 #ifdef DEVELOP_DEMO
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController: [[ViewController alloc] init]];
 #else
     self.topController = [[WXViewController alloc] init];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/dist/main.js", server]];
+    NSURL *url = [NSURL URLWithString:TOP_VIEW];
     self.topController.url = url;
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.topController];
     self.topController.view.alpha = 0.0;

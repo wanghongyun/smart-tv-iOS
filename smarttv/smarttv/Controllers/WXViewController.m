@@ -50,10 +50,19 @@
         self.title = self.param[@"title"];
     }
     
-//    NSString *flag = [self.instance.scriptURL.path substringFromIndex:PROJECT.length];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveTobackNotification:) name:flag object:nil];
-    
     [self render];
+    
+    NSString *flag;
+#ifdef DEVELOP_DEMO
+    flag = [self.instance.scriptURL.path substringFromIndex:1];
+#else 
+    flag = [[self.instance.scriptURL.path componentsSeparatedByString:PROJECT] lastObject];
+#endif
+    if (flag) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveTobackNotification:) name:flag object:nil];
+    }
+    NSLog(@"flag:\n%@", flag);
+
 }
 
 - (void)viewDidLayoutSubviews
@@ -139,7 +148,7 @@
 }
 
 - (void)showError {
-    
+    return
     [[self.view viewWithTag:ERROR_VIEW_TAG] removeFromSuperview];
     
     UIView *view = [[UIView alloc] initWithFrame:self.view.bounds];
