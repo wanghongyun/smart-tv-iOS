@@ -12,8 +12,8 @@
 
 + (instancetype)instance;
 
-- (void)setValue:(NSString *)value forKey:(NSString *)key;
-- (NSString *)getValueForKey:(NSString *)key;
+- (void)setValue:(NSDictionary *)value forKey:(NSString *)key;
+- (id)getValueForKey:(NSString *)key;
 - (NSString *)localVersion;
 - (void)setLocalVersion:(NSString *)version;
 

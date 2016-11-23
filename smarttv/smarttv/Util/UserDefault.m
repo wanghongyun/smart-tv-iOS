@@ -38,15 +38,19 @@
     // TODO;
 }
 
-- (void)setValue:(NSString *)value forKey:(NSString *)key {
+- (void)setValue:(NSDictionary *)value forKey:(NSString *)key {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    [def setObject:value forKey:key];
+    if ([value count] == 0) {
+        [def removeObjectForKey:key];
+    } else {
+        [def setObject:value forKey:key];
+    }
     [def synchronize];
 }
 
-- (NSString *)getValueForKey:(NSString *)key {
+- (id)getValueForKey:(NSString *)key {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    return [def stringForKey:key];
+    return [def valueForKey:key];
 }
 
 - (void)setLocalVersion:(NSString *)version {

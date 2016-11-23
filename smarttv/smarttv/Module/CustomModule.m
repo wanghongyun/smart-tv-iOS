@@ -134,15 +134,15 @@ WX_EXPORT_METHOD(@selector(phoneCall:))
 }
 
 WX_EXPORT_METHOD(@selector(setKeyValue:value:))
-- (void)setKeyValue:(NSString *)key value:(NSString *)value {
+- (void)setKeyValue:(NSString *)key value:(NSDictionary *)value {
     [[UserDefault instance] setValue:value forKey:key];
 }
 
-WX_EXPORT_METHOD(@selector(getKeyValue:value:callBack:))
-- (void)getKeyValue:(NSString *)key value:(NSString *)value callBack:(WXModuleCallback)callback {
-    NSString *localValue = [[UserDefault instance] getValueForKey:key];
+WX_EXPORT_METHOD(@selector(getKeyValue:callBack:))
+- (void)getKeyValue:(NSString *)key callBack:(WXModuleCallback)callback {
+    id localValue = [[UserDefault instance] getValueForKey:key];
     if (!localValue) {
-        localValue = value;
+        localValue = @{};
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         callback(localValue);
@@ -207,6 +207,11 @@ WX_EXPORT_METHOD(@selector(dismissModal))
     if ([weexInstance.viewController isKindOfClass:[WXViewController class]]) {
         [(WXViewController *)weexInstance.viewController dismissModal];
     }
+}
+
+WX_EXPORT_METHOD(@selector(log:))
+- (void)log:(NSString *)log {
+    NSLog(@"%@", log);
 }
 
 @end

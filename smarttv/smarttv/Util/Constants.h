@@ -9,6 +9,11 @@
 #ifndef Constants_h
 #define Constants_h
 
+/*
+ * 开发模式，调用本地ip，本地server，不同的toBackFlag
+ */
+//#define DEVELOP_DEMO
+
 #define HOST @"http://smarttv.webuildus.com/"
 
 #define SERVER [NSString stringWithFormat:@"%@%@", HOST, @"smart-tv-weex/"]
@@ -23,8 +28,6 @@
 #define WEIXIN_PAY_NOTIFICATION @"weixin_pay"
 
 #define WEIXIN_SCHEME @"wx29bf87bc736d6f33"
-
-//#define DEVELOP_DEMO
 
 #ifndef DEVELOP_DEMO
     #define PROJECT @"smart-tv-weex/"

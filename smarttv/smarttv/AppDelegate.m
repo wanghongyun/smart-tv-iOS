@@ -35,10 +35,6 @@
     [WXSDKEngine registerHandler:[[WeexImageDownloader alloc] init] withProtocol:@protocol(WXImgLoaderProtocol)];
     //    [WXSDKEngine registerHandler:[[WXEventModule alloc] init] withProtocol:@protocol(WXEventModuleProtocol)];
     [WXSDKEngine registerModule:@"CustomModule" withClass:[CustomModule class]];
-
-//    [WXSDKEngine registerComponent:@"bdwxwebview" withClass:[BandouWebComponent class]];
-    
-//    [WXSDKEngine registerComponent:@"list" withClass:NSClassFromString(@"BandouListComponent") withProperties:nil];
     
     //set the log level
     [WXLog setLogLevel:WXLogLevelWarning];
