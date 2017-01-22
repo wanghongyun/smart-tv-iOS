@@ -21,7 +21,7 @@
 #define SPLASH_VIEW [NSString stringWithFormat:@"%@%@", SERVER, @"dist/guide.js"]
 
 //应用注册scheme,在AlixPayDemo-Info.plist定义URL types
-#define ALI_PAY_SCHEME @"bandoualipay"
+#define ALI_PAY_SCHEME @"smarttvalipay"
 
 #define ALI_PAY_NOTIFICATION @"ali_pay"
 
